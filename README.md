@@ -1,2 +1,3 @@
 # Coding_Interview_Questions
-For Learning Purposes
+All the questions and solutions from AlgoExpert in Javascript.
+I created this for Learning purposes.
