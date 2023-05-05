@@ -17,17 +17,17 @@ another concept in order for an array to be a valid subsequences of another arra
 - traverse the first main array to check that the sequence could be located anywhere in the main array.
 - traverse the second  sequence arrays that check the validate subsequence of original array
 - subsequence cares about order
-- use while loop: initialize the first pointer underneath the first element of our subsequence or potential subsequence  and also set the another pointer in main array and iterating the main array by looking at elemnts and seeing if we find the first element in our potential subsequence.
+- use while/ do while loop: initialize the first pointer underneath the first element of our subsequence or potential subsequence  and also set the another pointer in main array and iterating the main array by looking at elemnts and seeing if we find the first element in our potential subsequence.
 */
 function isValidSubsequence(array, sequence) {
-    let arrIdx = 0;
-    let seqIdx = 0;
-    while (arrIdx < array.length && seqIdx < sequence.length) {
-        if (array[arrIdx] === sequence[seqIdx])
-        seqIdx++;
-        arrIdx++;
-    }
-    return seqIdx === sequence.length;
+    let i = 0;
+    let j = 0;
+while (i < array.length && j < sequence.length) {
+        if (array[i] === sequence[j]) 
+            j++;
+            i++;
+}
+return j === sequence.length;
 }
 
 /*
@@ -36,22 +36,27 @@ Space Complexity: O(1) conatant, because we do not store any values/ variables e
  */
 
 /* Solution: 2 
-- use for loop: you'll have to declare a variable holding the position in the potential subsequence.At first, this position will be the 0th index in the sequence, Iterate through the main array, and look for the first integer in the potential subsequence. 
+- use for loop: declare a variable holding the position in the potential subsequence.At first, this position will be the 0th index in the sequence, Iterate through the main array, and look for the first integer in the potential subsequence. 
 If you find that integer, keep on iterating through the main array,you'll increment the position variable untill you reach the end of the sequence.
 but now look for the second integer in the potential subsequence. Continue this process untill you either find every integer in the potential subsequence or you reach the end of the main array.
 */
 function isValidSubsequence(array, sequence) {
     // Write your code here.
-    let seqIdx = 0
+    let i = 0
     for (const value of array) {
-        if (seqIdx === sequence.length)
-        return true
-        if (sequence[seqIdx] === value)
-        seqIdx++;
+        if (sequence[i] === value)
+        i++;
     }
-    return seqIdx === sequence.length;
+    return i === sequence.length;
 }
 /* 
 Time Complexity: O(N)
 Space Complexity: O(1)
 */
+// we can also used other iteration array methods such as forEach, map, every, some, indexOf, filter, reduce
+function isValidSubsequence(array, sequence) {
+    // Write your code here.
+    let i = 0;
+    array.forEach((value) => value == sequence[i] && i++ ) // replace the iteration method if you want used other one
+    return i === sequence.length;
+    }
